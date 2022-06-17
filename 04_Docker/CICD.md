@@ -82,8 +82,8 @@
 - Build 드롭 다운에서 Execute shell 선택
 
   ```
-  docker build -t hello_ssafy:latest .  # hello_ssafy라는 이름으로 빌드
-  docker run -d -p 80:80 hello_ssafy    # hello_ssafy 실행
+  docker build -t hello:latest .  # hello라는 이름으로 빌드
+  docker run -d -p 80:80 hello    # hello 실행
   ```
 
   - docker run : Image로 Container를 생성하는 명령어
