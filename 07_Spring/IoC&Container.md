@@ -51,7 +51,7 @@
 
 
 
-> #### Maven
+> #### Maven : 버전/라이브러리 관리
 
 - Configure - Convert to Maven Project
 
