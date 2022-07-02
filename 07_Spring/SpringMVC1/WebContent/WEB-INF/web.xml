@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>SpringMVC1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Dispatcher 생성 : Servlet을 빈으로 등록-->
+  <!-- Dispatcher가 Spring Container가 되기 위해서는 스프링 설정 파일이 필요 -->
+  <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
+	<servlet>
+		<servlet-name>springDispatcherServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		
+		<!-- 스프링 컨테이너가 되기 위해서 만든 스프링 설정파일의 경로를 지정해주는 부분 -->
+		<!-- 이 컨테이너에 핸들러 매핑을 등록하면, 이 핸들러매핑에 의해 요청을 처리할 함수를 결정
+		         요청을 처리할 함수는 controller 형태로 이 컨테이너에 빈드로 등록하면 함수로서 동작할 것임 -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/servlet-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Map all requests to the DispatcherServlet for handling -->
+	<servlet-mapping>
+		<servlet-name>springDispatcherServlet</servlet-name>
+		<!-- /로 인해 모든 요청이 저리로 감 -->
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- listener는 ContextLoaderLisenter로 만들어짐 -->
+	<!-- ContextLoaderLisenter는 스프링 설정파일을 읽어 컨테이너를 빌드하고 해당 컨테이너가 루트 컨테이너가 되도록 설정해줌 -->
+	<!-- WEB-INF/applicationContext가 listener에 의해서 루트 컨테이너로 등록될 것 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<filter>
+		<!-- 이름은 임의로 설정 -->
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<!-- 설정자의 이름은 encoding이고 거기에 UTF-8을 넣어줘 -->
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<!-- /로 본 필터가 모든 url을 처리 -->
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

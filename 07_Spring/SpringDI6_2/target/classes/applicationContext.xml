@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 객체 등록 -->
+	<bean class="com.hj.di.Labtop" id="labtop"></bean>
+	<bean class="com.hj.di.Desktop" id="desktop"></bean>
+	<bean class="com.hj.di.Worker" id="worker">
+		<!-- setComputer 함수를 호출해서 값을 넣어줘야함 : property -->
+		<!-- name : setComputer의 set을 제외하고 첫글자를 소문다로 바꾼이름이 들어감 = setter의 이름 -->
+		<!-- ref : 매개변수 -->
+		<property name="computer" ref="labtop"></property>
+	</bean>
+	
+	
+</beans>

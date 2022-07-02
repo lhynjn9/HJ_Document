@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- 여기(본 컨테이너)에 빈으로 된 것들은 모든 서블릿들이 의존 관계 설정이 가능하므로
+		MyController가 Autowired하면 
+		MyController에서  @Controller가 존재하는 컴포넌트를 스캔한  servlet-context.xml에는 해당 빈이 존재하지 않지만
+		applicationContext.xml이라는 root 컨테이너에 빈으로 등록하므로 의존관계 설정이 가능
+	-->
+	<!-- Service의 등록 -->
+	<context:component-scan base-package="com.hj.mvc.model.service"></context:component-scan>
+
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Controller 등록 -->
+	<!-- DefaultAnnotationHandlerMapping을 기본으로 사용하므로 별도 등록 없이 사용가능 -->
+	<context:component-scan base-package="com.hj.mvc.controller"></context:component-scan>
+	
+	<!-- view name으로 forward를 할 때, 앞 뒤에 해당 값을 붙여서 전송 -->
+	<!-- InternalResourceViewResolver도 Default지만 prefix와 suffix를 사용하기 위해 명시적으로 등록 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+</beans>

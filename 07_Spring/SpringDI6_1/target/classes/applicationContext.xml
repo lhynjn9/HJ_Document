@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 객체 등록 -->
+	<bean class="com.hj.di.Labtop" id="labtop"></bean>
+	<bean class="com.hj.di.Desktop" id="desktop"></bean>
+	
+	<!-- 오류 발생 : 기본 생성자가 없어서 발생하는 오류 -> 스프링 프레임워크는 객체를 생성할 때 기본생성자를 사용함 -->
+	<!-- 그럼 기본생성자가 아닌 경우에 객체가 만들어져야 할 경우는 ? -->
+	<!-- 그렇다면 입력값을 알려주어야 함 -->
+	<bean class="com.hj.di.Worker" id="worker">
+	<!-- contructor-arg : 매개변수에 넣을 값을 알려주는 것 -->
+	<!-- value : 상수 입력, ref : 다른 빈 객체 입력 -->
+	<!-- name : 매개변수명 -->
+		<constructor-arg name="computer" ref="desktop"></constructor-arg>
+	</bean>
+</beans>

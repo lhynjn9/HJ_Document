@@ -1,0 +1,67 @@
+# Spring DI
+
+- SpringDI1
+  - 의존성 인지
+  - Worker가 Desktop 소유하면서 생성
+    - 타입 의존성, 객체 생성 의존성 발생
+- SpringDI1
+  - 인터페이스를 이용한 느슨한 결합
+    - Desktop과 Labtop은 Computer로의 기능 : 인터페이스로 생성
+    - 타입 의존성이 느슨해짐
+- SpringDI3_1
+  - 생성자를 이용한 의존성 주입
+    - 객체 생성 의존성을 느슨하게 하기 위해 누군가가 만든 것을 전달 받으면 됨
+    - 생성자에서 매개변수를 받아 저장하는 방법
+    - CEO로 의존성이 넘어감(의존성 역전, 제어의 역전(IoC))
+    - Computer 없이 Worker가 만들어질 수 없는 강한 느낌
+      - 생성자에서 컴퓨터를 받아야 하므로
+- SpringDI3_2
+  - 설정자를 이용한 의존성 주입 : 전략 패턴
+    - 객체 생성 의존성을 느슨하게 하기 위해 누군가가 만든 것을 전달 받으면 됨
+    - 설정자를 통해 전달받은 컴퓨터를 저장하는 방법
+    - Computer는 나중에 받을 수도 안받을 수도 있음
+      - 일단 Worker 객체가 만들어짐
+      - Computer를 바꿔서 설정할 수도 있음
+    - Worker : Controller
+      - 파라미터 획득
+      - 적절함 Dao 함수(computer) 호출 : Worker가 Deskop과 Labtop을 소유한것과 같은 느낌
+      - 적절한 page로 forward
+    - CEO처럼 모든 역할을 하는 것 : Factory
+- SpringDI4
+  - 팩토리 메소드 패턴
+- SpringDI5
+  - 스프링 컨테이너 빌드하기
+    - Factory 역할의 스프링 컨테이너 생성
+    - maven으로 라이브러리 주입
+    - 스프링 객체 생성 공장을 위한 설정 정보 파일
+      - resources/applicationContext.xml
+    - 공장이 있으므로 모든 자바코드에서 객체 생성을 하지 않아도 됨
+    - 하지만, 조립과 사용을 CEO가 여전히 하고 있음
+- SpringDI6_1
+  - 스프링을 이용한 생성자 주입
+    - XML에 빈을 등록
+    - 빈을 생성할 때, 생성자에 들어갈 파라미터를 정해줌
+      - constructor-arg
+- SpringDI6_2
+  - 스프링을 이용한 설정자 주입
+    - XML에 빈을 등록
+    - 빈을 생성할 때, 설정자에 값을 넣어주는 방법
+      - property
+- SpringDI7_1
+  - 생성자 주입 
+    - Component Scan을 이용한 빈 등록
+    - 의존성 주입
+      - 생성자 위에다가 @Autowired : 타입이 맞는 것이 있으면 주입
+- SpringDI7_2
+  - 설정자 주입
+    - Component Scan을 이용한 빈 등록
+    - context:conponent-scan @된 클래스는 모두 빈으로 등록됨
+    - id는 기본적으로 클래스명을 소문자로 바꾼 이름
+      - 바꾸고 싶다면 ()안에 원하는 이름 명명
+    - 의존성 주입
+      - 설정자 위에다가 @Autowired : 타입이 맞는 것이 있으면 주입
+      - 만약 타입이 여러개일 경우, 이름을 가지고 구분함 : 잘 없는 상황
+- SpringDI7_3
+  - 필드 인젝션 : 권장하지는 않음(순환참조 가능성이 있음)
+    - Component Scan을 이용한 빈 등록
+    - 생성자나 설정자가 없는 상태에서 필드에다가 넣는 방법

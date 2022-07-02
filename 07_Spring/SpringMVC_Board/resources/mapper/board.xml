@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hj.board.model.dao.BoardDao">
+	<resultMap type="Board" id="boardMap">
+		<result column="id" property="id"/>
+		<result column="writer" property="writer"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="regDate" property="regDate"/>
+		<result column="view_cnt" property="viewCnt"/>
+	</resultMap>
+	
+	<!-- 게시글 등록하기 -->
+	<!-- useGeneratedKeys:자동으로 생성된 키를 사용하겠다 -->
+	<!-- 자동으로 만들어진 id를 board 객체에 id로 자동으로 사용/들어감 -->
+	<insert id="insertBoard" parameterType="Board" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO board (title, writer, content)
+		VALUES	 (#{title}, #{writer}, #{content})
+	</insert>
+	
+	<select id="selectBoard" resultMap="boardMap">
+		SELECT id, content, view_cnt, data_format(reg_date, '%Y-%M-%d') as reg_date, writer
+		FROM board
+		ORDER BY id DESC
+	</select>
+	
+	<select id="selectBoardById" parameterType="int" resultType="Board">
+		SELECT id, title, writer, content, view_cnt as viewCnt
+		FROM board
+		WHERE id = #{id}
+	</select>
+	
+	<update id="updateViewCnt" parameterType="int">
+		UPDATE board
+	</update>
+</mapper>
