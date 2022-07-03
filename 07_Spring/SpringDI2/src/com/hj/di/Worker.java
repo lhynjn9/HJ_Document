@@ -8,7 +8,8 @@ public class Worker {
 	
 	public Worker() {
 		// 의존성 발생 2 : 객체를 생성할 때
-		computer = new Desktop();
+		computer = new Labtop();
+		System.out.println("워커 생성");
 	}
 	
 	public void work() {

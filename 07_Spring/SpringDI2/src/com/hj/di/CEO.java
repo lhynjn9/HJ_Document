@@ -10,7 +10,7 @@ package com.hj.di;
 
 public class CEO{
 	public static void main(String[] args) {
-		Computer computer = new Labtop();
+//		Computer computer = new Labtop();
 		Worker worker = new Worker();
 		worker.work();
 	}

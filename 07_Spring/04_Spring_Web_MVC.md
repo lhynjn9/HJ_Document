@@ -184,20 +184,6 @@
 
 
 
-1. sevlet-context.xml
-
-   - MVC bean 구성요소 등록(handler mappint, view resolver, controller)
-
-   - 설정 파일에 HandlerMapping 설정
-
-     ![캡처](https://user-images.githubusercontent.com/97647987/176178130-04055696-98c1-4105-83bd-462706ccaf95.JPG)
-
-2. Controller 구현 및 Controller와 JSP의 연결을 위해 View Resolver 설정
-
-3. JSP(View)작성
-
-   ![캡처](https://user-images.githubusercontent.com/97647987/176178748-54682c70-ef21-4800-aff3-505de6d16e74.JPG)
-
 > ####  Spring MVC 구현 로직
 
 1. web.xml - DispatcherServlet 설정
@@ -218,36 +204,4 @@
    - servlet-context.xml에 component-scan으로 등록하고 Annotation으로 등록
 3. Controller와 reponse page 연결을 위한 ViewResolver 설정(servlet-context.xml)
 
-
-
-> #### Controller
-
-- @RequestMapping
-
-  - URL을 클래스 또는 특정 핸들러(메서드)에 매핑
-
-  - 일반적 클래스에 작성하는 @RequestMapping은 요청 경로 혹은 요청 경로, 혹은 요청 패턴에 매칭
-
-  - 메서드 Annotation은 요청 방식(GET, POST) 등ㅇ로 범위를 좁혀줌
-
-
-  ![캡처](https://user-images.githubusercontent.com/97647987/176226773-889a3c52-7d99-4851-84fc-2f461b426dad.JPG)
-
-  ![캡처](https://user-images.githubusercontent.com/97647987/176226845-fac9690a-eebb-46cf-86e2-87e24d967e43.JPG)
-
-  
-
-![캡처](https://user-images.githubusercontent.com/97647987/176227004-e63e3464-7037-41b4-a5e0-67510be35975.JPG)
-
-
-
-
-
-
-![캡처](https://user-images.githubusercontent.com/97647987/176228596-6d449f30-e5cb-40c2-9ee7-0b13c712c312.JPG)
-
-
-
-
-
-![캡처](https://user-images.githubusercontent.com/97647987/176231129-4585448e-f080-4b4b-8618-f939c59f98ba.JPG)![캡처](https://user-images.githubusercontent.com/97647987/176233675-c4196212-3308-4b4e-ae18-fb1cc43a3a8d.JPG)
+![캡처](https://user-images.githubusercontent.com/97647987/176233675-c4196212-3308-4b4e-ae18-fb1cc43a3a8d.JPG)

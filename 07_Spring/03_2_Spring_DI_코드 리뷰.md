@@ -4,7 +4,7 @@
   - 의존성 인지
   - Worker가 Desktop 소유하면서 생성
     - 타입 의존성, 객체 생성 의존성 발생
-- SpringDI1
+- SpringDI2
   - 인터페이스를 이용한 느슨한 결합
     - Desktop과 Labtop은 Computer로의 기능 : 인터페이스로 생성
     - 타입 의존성이 느슨해짐

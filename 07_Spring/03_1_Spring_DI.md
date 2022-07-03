@@ -1,4 +1,4 @@
-# spring DI
+# Spring DI
 
 - 예시 코드 : SpringDI6_1, SpringDI6_2
 

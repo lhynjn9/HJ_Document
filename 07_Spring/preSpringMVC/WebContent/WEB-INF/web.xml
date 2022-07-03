@@ -36,11 +36,10 @@
   	<filter-name>myfilter</filter-name>
   	<url-pattern>/hello</url-pattern>
   	
-  	
+  
+  </filter-mapping>
  <!-- listener 등록 -->
  <listener>
  	<listener-class>com.hj.prespringmvc.MyListner</listener-class>
  </listener>
-
-  </filter-mapping>
 </web-app>

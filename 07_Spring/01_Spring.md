@@ -56,21 +56,6 @@
 
 
 
-> #### Spring Framework Module
-
- ![image](https://user-images.githubusercontent.com/97647987/175879320-99dd88c6-c29d-4f32-a46a-606f77eb6eb8.png)
-
-| **Spring Core**    | 스프링 프레임워크의 핵심기능을 제공하며, Core컨테이너의 주요컴포넌트는 BeanFactory이다. |
-| ------------------ | ------------------------------------------------------------ |
-| **Spring Context** | 국제화된 메시지, Application 생명주기 이벤트, 유효성 검증 등을 지원함으로써, BeanFactory의 개념을 확장한다. |
-| **Spring AOP**     | 설정 관리 기능을 통해 AOP기능을 스프링프레임워크과 직접 통합시킨다. |
-| **Spring DAO**     | Spring JDBC DAO추상레이어는 다른 데이터베이스 벤더들의 예외 핸들링과 오류메시지를 관리하는 중요한 예외계층을 제공한다. |
-| **Spring ORM**     | 스프링프레임워크는 여러 ORM프레임워크에 플러그인되어, Object Relarional 툴(JDO,IBatis)을 제공한다. |
-| **Spring Web**     | Web Context module은 Application Context module 상위에 구현되어, Web기반 Application context를 제공한다. |
-| **Spring Web MVC** | 스프링 프레임워크는 자체적으로 MVC워크를 제공하고 있으며, 스프링만 사용해도 MVC기반의 웹 어플리케이션을 어렵지 않게 개발이 가능하다. |
-
- 
-
 > #### IoC(Inversion of Control, 제어의 역행)
 
 - 객체를 제어하고 관리하는 역할이 개발자에게서 스프링 컨테이너에게 반전된다는 의미
@@ -101,5 +86,4 @@
   - Object가 컨테이너의 존재 여부를 알 필요가 없음
   - Lookup 관련된 코드들이 Object 내에서 사라짐
   - Setter Injection과 Constructor Injection, Method Injection이 있음
-
 
