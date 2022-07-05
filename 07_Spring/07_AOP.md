@@ -1,7 +1,6 @@
 # AOP(Aspect Oriented Programming)
 
 - 예제 : SpringAOP1
-
 - 관점 지향 프로그래밍
 - 관점에 따라 코드를 분리하자
 - OOP에서 모듈화의 핵심 단위는 클래스인 반면, AOP는 모듈화 단위는 Aspect(관점)
@@ -10,9 +9,25 @@
   - ex) 예금 인출과 예금 송금은 공통으로 보안 기능이 있어야 함다
   - 공통으로 사용되는 기능을 미리 정의하고 그 안에 예금 인출이나 예금 송금같은 단위를 바꿔 넣으면서 구현하자
 - Spring framework의 필수요소는 아니지만, AOP 프레임워크는  Spring IoC를 보완
+- 용어 정리
+  - **Aspect : 여러 클래스에 공통적으로 구현되는 관심사의 모듈화(PersonProxy)**
+    - **Advice(언제 어떤 코드를) + Pointcut(기준 시점)**
+  - Join Point : 메서드 실해이나 예외처리와 같은 프로그램 실행중의 특정 지점, Spring에서는 메서드 실행을 의미
+  - **Advice : 특정 조인 포인트에서 Aspect에 의해서 취해진 행동, Around, Before, After 등의 Advice 타입이 존재**
+  - **Pointcut : 조인 포인트에 Aspect를 적용하기 위한 조건 서술, Aspect는 지정한 pointcut에 일치하는 모든 join point에서 실행됨**
+  - Target 객체 : 하니 이상의 advice가 적용될 객체(Worker, HJ), Spring AOP는 Runtime Proxy를 사용하여 구현되므로 객체는 항상 Proxy가 됨
+  - AOP Proxy : AOP를 구현하기 위해 AOP프레임워크에 의해 생성된 객체, Spring Framework에서 AOP 프록시는 JDK dynamic proxy 또는 CGLIB proxy임
+  - Weaving : Aspect를 다른 객체와 연걸하여 Advice객체를 생성, 런타임 또는 로딩 시 수행할 수 있지만 Spring AOP는 런타임에 위빙을 수행
+- Spring AOP
+  - <u>@AspectJ : 일반 Java 클래스를 Aspect로 선언하는 스타일, AspectJ 프로젝트에 의해 소개되엇음</u>
+  - <u>Spring AOP에서는 pointcut 구문 분석, 매핑을 위해서 AspectJ 라이브러리를 사용함</u>
+  - <u>하지만 AOP runtime은 순수 Spring AOP이며, AspectJ에 대한 종속성은 없음</u>
 - Proxy Server
+  - 예제 : SpringAOP2
   - 중개 기능을 하는 서버
   - 보안 : 사용자에게 서버를 오픈하지 않아도 됨
   - 공통되는 작업의 처리
-    - 공통되는 작업을 처리하는 클래스 생성해서 처리하는 것 : **<u>프록시 패턴</u>**
-  - 우회
+    - 공통되는 작업을 클래스로 생성해서 처리하는 것 : **<u>프록시 패턴</u>**
+- SpringAOP3
+  - spring context, aspectj weaver, aspectj runtime
+  - aop관련 설정ㅇ이 필요해서 Namespaece에서 aop를 체크

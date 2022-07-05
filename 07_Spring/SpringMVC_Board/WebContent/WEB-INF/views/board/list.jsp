@@ -20,7 +20,7 @@
 					<th>조회수</th>
 					<th>등록일</th>
 				</tr>
-				<!-- list의 키 값 -->
+				<!-- 게시물 조회 시, list라는 키 값으로 넣어주어야 함 -->
 				<c:forEach items="${list }" var="board">
 					<tr>
 						<td>${board.id }</td>

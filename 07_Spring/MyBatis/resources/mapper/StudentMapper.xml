@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <!-- namespace 필수 -->
+ <mapper namespace="com.hj.jdbc.model.dao.StudentDao">
+ 	<insert id="insertStudent" parameterType="student">
+ 		INSERT INTO student VALUES(#{snum}, ${sname}, #{sgrade})
+ 	</insert>
+ 	<select id="selectOne" resultType="student" parameterType>
+ 		SELECT * FROM student WHERE snum = #{snum}
+ 	</select>
+ 	<select id="selectAll" resultType="student">
+ 		SELECT * FROM student
+ 	</select>
+ </mapper>

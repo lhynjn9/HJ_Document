@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis 문법 정보 -->
+	<configuration>
+		<typeAliases>
+			<typeAlias type="com.hj.jdbc.model.dto.Student" alias="student"/>
+		</typeAliases>
+		<environments default="development">
+			<environment id="development">
+		 	  <transactionManager type="JDBC"/>
+		      <dataSource type="POOLED">
+		        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+		        <property name="url" value="jdbc:mysql://localhost:3306/hj_board?ServerTimezone=UTC"/>
+		        <property name="username" value="root"/>
+		        <property name="password" value="0000"/>
+		      </dataSource>
+			</environment>
+		</environments>
+		<mappers>
+			<mapper resource="mapper/studentMapper.xml"/>
+			<!-- <mapper class="com.hj.jdbc.model.dao.StudentDao"/> -->
+		</mappers>
+	</configuration>
