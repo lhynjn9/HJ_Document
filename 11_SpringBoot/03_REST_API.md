@@ -211,6 +211,129 @@
 4. src/main/java/com/hj/rest/controller/TestController3.java 생성
 
    ```java
+   package com.hj.rest.controller;
+   
+   import org.springframework.web.bind.annotation.DeleteMapping;
+   import org.springframework.web.bind.annotation.GetMapping;
+   import org.springframework.web.bind.annotation.PostMapping;
+   import org.springframework.web.bind.annotation.PutMapping;
+   import org.springframework.web.bind.annotation.RequestMapping;
+   import org.springframework.web.bind.annotation.RestController;
+   
+   @RestController
+   @RequestMapping("/rest3") // 공통 url
+   public class TestController3 {
+   	@GetMapping("/test1")
+   	public String test1() {
+   		return "GET";
+   	}
+   	
+   	@PostMapping("/test2")
+   	public String test2() {
+   		return "POST";
+   	}
+   	
+   	@PutMapping("/test3")
+   	public String test3() {
+   		return "PUT";
+   	}
+   	
+   	@DeleteMapping("/test4")
+   	public String test4() {
+   		return "DELETE";
+   	}
+   	
+   
+   }
+   
    ```
 
+5. src/main/java/com/hj/rest/controller/TestController4.java 생성
+
+   ```java
+   package com.hj.rest.controller;
    
+   import org.springframework.http.HttpHeaders;
+   import org.springframework.http.HttpStatus;
+   import org.springframework.http.ResponseEntity;
+   import org.springframework.web.bind.annotation.GetMapping;
+   import org.springframework.web.bind.annotation.PathVariable;
+   import org.springframework.web.bind.annotation.PostMapping;
+   import org.springframework.web.bind.annotation.RequestBody;
+   import org.springframework.web.bind.annotation.RequestMapping;
+   import org.springframework.web.bind.annotation.RestController;
+   
+   @RestController
+   @RequestMapping("/rest4")
+   public class TestController4 {
+   
+   	@GetMapping("/board/{id}")
+   	// 파라미터가 아닌 path의 일부로 들어온 id를 받아야 함
+   	// 변수 이름이 다르다면 직접 매핑해줘야 함
+   	public String test1(@PathVariable("id") int no) {
+   	// public String test1(@PathVariable int id) {
+   		
+   		return "PathVariable" + no;
+   	}
+   	
+   	
+   	// 클라이언트가 보내준 것이 json형태일 때 알려주는 것 @RequsetBody
+   	@PostMapping("/test2")
+   	public String test2(@RequestBody Member m) {
+   		return String.format("id: %s, email: %s", m.getId(), m.getEmail());
+   		
+   	}
+   	
+   	// ResponseEntity : 응답하려는 데이터(Body) + 응답 헤더(헤더) + 응답코드(시작 라인) 조작 가능
+       // 응답 헤더는 옵션
+   	// 자체로 ResponseBody를 포함
+   	// ResponseEntity<T> : T <- Body에 들어갈 데이터의 타입
+   	@GetMapping("/test3")
+   	public ResponseEntity<String> test3(){
+   		HttpHeaders headers = new HttpHeaders();
+   		headers.add("auth", "12341234");
+   		return new ResponseEntity<String>("OK 성공", headers, HttpStatus.OK);
+   		
+   	}
+   	 
+   }
+   ```
+   
+   
+   
+   - Lombok 설치
+     - [여기](https://projectlombok.org/)에 접속
+     - 롬복을 다운 받은 위치에서 cmd 열기
+     - `java -jar lombok.jar` 입력
+     - specify location 클릭해서 sts 찾기
+     - install
+     - sts 재실행
+     - sts 폴더에  lombok 설치 확인
+     - STS.ini 파일의 -javaagent 경로에 한글이 있다면 .\lombok.jar로 상대 경로로 변경
+   
+   
+   
+   - 실습
+   
+     - src/main/java/com/hj/rest/controller/Member.java 수정
+   
+       ```java
+       package com.hj.rest.controller;
+       
+       import lombok.AllArgsConstructor;
+       import lombok.Data;
+       import lombok.NoArgsConstructor;
+       
+       @Data // setter, getter 한번에 생성
+       @NoArgsConstructor // 매개변수가 없는 생성자 생성
+       @AllArgsConstructor // 모든 멤버 변수로 생성자를 생성
+       public class Member {
+       	private String id;
+       	private String password;
+       	private String email;
+       
+       }   
+       
+       ```
+   
+       

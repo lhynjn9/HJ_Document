@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 // 하나의 클래스에 뷰와 rest를 제공하고 싶다면
-// Controller + ResponseBody
+// RestController = Controller + ResponseBody
 @RestController
 @RequestMapping("/rest2")
 public class TestController2 {
