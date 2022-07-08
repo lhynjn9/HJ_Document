@@ -32,13 +32,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 
 	<select id="selectOne" resultMap="boardMap" parameterType="int">
-		SELECT id, title, writer, content, view_cnt, data_format(reg_date, '%Y-%m-%d') as reg_date
+		SELECT id, title, writer, content, view_cnt, date_format(reg_date, '%Y-%m-%d') as reg_date
 		FROM board
 		WHERE id = #{id}
 	</select>
 	
 	<select id="selectList" resultMap="boardMap" parameterType="java.util.HashMap">
-		SELECT id, title, writer, content, view_cnt, data_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date
+		SELECT id, title, writer, content, view_cnt, date_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date
 		FROM board
 		<if test="mode==1">
 			WHERE title LIKE CONCAT('%', #{keyword}, '%')
