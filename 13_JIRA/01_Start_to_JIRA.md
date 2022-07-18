@@ -1,4 +1,4 @@
-## How to JIRA
+## Start to JIRA
 
 - Sprint
   - 업무 기간 단위
