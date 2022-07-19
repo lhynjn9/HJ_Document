@@ -1,4 +1,4 @@
-# CI/CD
+# CI/CD 
 
 - Continuous Integration, Continuous Delivery 또는 Continuous Deployment의 약자로, 애플리케이션 개발 단계를 자동화하여 애플리케이션 개발을 보다 짧은 주기로 고객에게 제공하는 방법
 
