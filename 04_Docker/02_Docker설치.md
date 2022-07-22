@@ -1,5 +1,9 @@
 # Docker 설치(Windows)
 
+- 더 정확히는 Docker Engine을 설치한 것
+
+
+
 > #### Docker Desktop 설치 준비
 
 1. [접속](https://docs.docker.com/desktop/install/windows-install/)하여 시스템 요구사항 확인
@@ -9,7 +13,7 @@
      - `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All` 입력
        - 도커 컨테이너를 실행하는데 필요한 운영체제의 기능이 활성화 됨
      - `Enable-WindowsOptionalFeature -Online -FeatureName containers –All` 입력
-       - 컨테이너 활성화 명령어임
+       - 컨테이너 활성화 명령어
    
    - [WSL2 기능 활성화](https://docs.microsoft.com/en-us/windows/wsl/install-manual)
    
@@ -29,11 +33,20 @@
    
        5. Powershell에서 `wsl --set-default-version 2`입력
        
-       7. Linux 배포판 설치 : Window 시스템 내부에서 실행되는 Linux 운영체제가 됨
+       6. Linux 배포판 설치 : Window 시스템 내부에서 실행되는 Linux 운영체제가 됨
+       
+       
 
-> #### 설치
+> #### Docker 설치
 
 - [다운로드](https://docs.docker.com/desktop/install/windows-install/)
 - 설치 확인
 
   - 명령 프롬프트에 `docker --verion` 입력하여 확인
+
+
+
+> #### Docker Engine
+
+- 도커를 실행하는데 필요한 Linux를 호스팅하는 가상 머신에 설정
+- 가상 머신이 필요한 이유는 운영체제가 기본적으로 도커를 지원하지 않음
