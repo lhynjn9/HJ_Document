@@ -35,7 +35,7 @@
 
 - Ethereum Request for Comment : 일종의 제안 시스템
 - [ERC721 표준](https://eips.ethereum.org/EIPS/eip-721)
-- NFT를 만들기 위한 일종의 규칙, 합의
+- NFT를 만들기 위한 일종의 규칙, 합의, 인터페이스
 - [Openzeppelin](https://docs.openzeppelin.com/contracts/4.x/)라는 라이브러리를 이용해 완성된 코드를 가져다 사용하는 방식으로 진행 가능
 
 
