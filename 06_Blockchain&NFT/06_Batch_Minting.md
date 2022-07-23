@@ -179,6 +179,43 @@
         }
     ```
 
+  - 완성 코드
+  
+    ```solidity
+    // SPDX-License-Identifier: MIT
+    
+    pragma solidity ^0.8.7;
+    
+    import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+    import "@openzeppelin/contracts/access/Ownable.sol";
+    
+    contract MintNFT is ERC721Enumerable, Ownable {
+        string public metadataURI;
+        
+        constructor(string memory _name, string memory _symbol, string memory _metadataURI) ERC721(_name, _symbol) {
+            metadataURI = _metadataURI;
+        }
+        
+        function mintNFT() public {
+            require(totalSupply() < 100, "You can no longer mint NFT.");
+    
+            uint tokenId = totalSupply() + 1;
+    
+            _mint(msg.sender, tokenId);
+        }
+    
+        function batchMintNFT(uint _amount) public {
+            for(uint i = 0; i < _amount; i++) {
+                mintNFT();
+            }
+        }
+    
+        function tokenURI(uint _tokenId) override public view returns (string memory) {
+            return string(abi.encodePacked(metadataURI, '/', _tokenId, '.json'));
+        }
+    }
+    ```
+  
     
 
 > #### 배포
@@ -194,7 +231,7 @@
 
 - batchMintNFT 동작 : 배치민팅 구현 확인
 - ownerOf로 주인 확인
-- [오픈씨 테스트넷](https://testnets.opensea.io/)접속하여 확인
+- [오픈씨 테스트넷 ](https://testnets.opensea.io/)접속하여 확인(지갑 연결)
   - 별도의 작업없이 해시립스를 통해서 NFT의 희귀도(Rarity)를 나타낼 수 있음
 
 

@@ -181,7 +181,7 @@
 
 7. mintNFT 함수 실행
 
-8. [오픈씨 테스트넷](https://testnets.opensea.io/)접속하여 확인
+8. [오픈씨 테스트넷](https://testnets.opensea.io/)접속하여 확인(지갑 연결)
 
 9. 현재 입력한 코드로는 OpenSea에서 프로젝트의 주인이 나인지르 확인이 불가하여 마켓 플레이스를 꾸밀 수 없음
 
@@ -265,7 +265,7 @@
 
 - mintNFT 함수 실행
 
-- [오픈씨 테스트넷](https://testnets.opensea.io/)접속하여 확인
+- [오픈씨 테스트넷](https://testnets.opensea.io/)접속하여 확인(지갑 연결)
 
 - Edit 버튼 활성화로 마켓 플레이스를 꾸미기 가능
 
