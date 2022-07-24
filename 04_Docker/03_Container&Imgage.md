@@ -177,4 +177,4 @@
 
 - 도커의 핵심 아이디어 : 앱을 포함하는 격리된 환경과 그 앱을 실행하는데 필요한 모든 것을 격리된 컨테이너 내부에 모두 포함하는 것
 
-  ![image-20220723222222101](images/03_Container&Imgage/image-20220723222222101.png)
+  ![image-20220723222222101](https://user-images.githubusercontent.com/97647987/180609238-65bd6553-bc07-4af9-9020-c5e12f2825e6.png)
